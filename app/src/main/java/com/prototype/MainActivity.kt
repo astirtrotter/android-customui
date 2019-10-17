@@ -37,7 +37,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupLoginListView() {
         val llv: ListView = findViewById(R.id.login_listview)
-        llv.adapter = LoginListViewAdapter()
+        llv.adapter = LoginListViewAdapter(arrayOf(
+            LoginCellModel("Email"),
+            LoginCellModel("Password", true, "warning text"),
+            LoginCellModel("Re-enter Password", true)
+        ))
     }
 
     private fun setupCommonButton() {
@@ -64,35 +68,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    inner class LoginListViewAdapter : BaseAdapter() {
+    inner class LoginListViewAdapter(private val data: Array<LoginCellModel>) : BaseAdapter() {
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             return convertView ?: CommonLoginCell(this@MainActivity).apply {
-                when (position) {
-                    0 -> {
-                        // email
-                        hintText = "Email"
-                        isPassword = false
-                    }
-                    1 -> {
-                        // password
-                        hintText = "Password"
-                        isPassword = true
-                        warningText = "password should have at least 8 characters, special character, a number and one uppercase"
-                    }
-                    2 -> {
-                        // re-enter password
-                        hintText = "Re-enter Password"
-                        isPassword = true
-                    }
-                }
+                val item = getItem(position)
+                hintText = item.hintText
+                isPassword = item.isPassword
+                warningText = item.warningText
             }
         }
 
-        override fun getItem(position: Int) = 0
+        override fun getItem(position: Int) = data[position]
 
         override fun getItemId(position: Int) = position.toLong()
 
-        override fun getCount() = 3
+        override fun getCount() = data.size
 
     }
+
+    data class LoginCellModel(
+        val hintText: String? = null,
+        val isPassword: Boolean = false,
+        val warningText: String? = null)
+
 }
