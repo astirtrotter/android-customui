@@ -65,7 +65,15 @@ class CommonNavHeader @JvmOverloads constructor(
             }
         }
     var leftButtonAction: OnClickListener? = null
+        set(value) {
+            field = value
+            leftButton.setOnClickListener(value)
+        }
     var rightButtonAction: OnClickListener? = null
+        set(value) {
+            field = value
+            rightButton.setOnClickListener(value)
+        }
 
     private lateinit var header: TextView
     private lateinit var leftButton: ViewGroup
@@ -83,9 +91,6 @@ class CommonNavHeader @JvmOverloads constructor(
         rightButton = container.findViewById(R.id.nav_button_right)
         rightImage = container.findViewById(R.id.nav_image_right)
         rightText = container.findViewById(R.id.nav_text_right)
-
-        leftButton.setOnClickListener(leftButtonAction)
-        rightButton.setOnClickListener(rightButtonAction)
     }
 
     override fun readAttr(attrs: AttributeSet?, defStyle: Int) {
