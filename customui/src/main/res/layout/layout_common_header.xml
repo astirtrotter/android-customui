@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/nav_2x">
+    android:padding="@dimen/nav_x">
 
     <TextView
         android:id="@+id/header_title"
