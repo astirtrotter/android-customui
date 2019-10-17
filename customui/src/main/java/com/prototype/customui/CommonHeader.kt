@@ -13,16 +13,12 @@ class CommonHeader @JvmOverloads constructor(
     override val layoutResId: Int
         get() = R.layout.layout_common_header
 
-    companion object {
-        val ALIGNMENT_LEFT = 0;
-    }
-
     var titleText: String = ""
         set(value) {
             field = value
             title.text = value
         }
-    var subtitleText: String? = null
+    var subTitleText: String? = null
         set(value) {
             field = value
             subTitle.text = value
@@ -63,7 +59,7 @@ class CommonHeader @JvmOverloads constructor(
         )
 
         titleText = a.getString(R.styleable.CommonHeader_titleText) ?: titleText
-        subtitleText = a.getString(R.styleable.CommonHeader_subTitleText)
+        subTitleText = a.getString(R.styleable.CommonHeader_subTitleText)
         titleColor = a.getColor(R.styleable.CommonHeader_titleColor, titleColor)
         subTitleColor = a.getColor(R.styleable.CommonHeader_subTitleColor, subTitleColor)
         titleAlignment = a.getInt(R.styleable.CommonHeader_titleAlignment, titleAlignment)

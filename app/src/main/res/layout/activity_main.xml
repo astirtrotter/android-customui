@@ -19,4 +19,12 @@
         app:leftButtonText="Left"
         app:rightButtonText="Right"/>
 
+    <com.prototype.customui.CommonHeader
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/common_nav_header"
+        app:titleText="@string/app_name"
+        app:titleAlignment="center"
+        app:subTitleText="ABC"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
