@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.Toast
-import com.prototype.customui.CommonButton
-import com.prototype.customui.CommonLoader
-import com.prototype.customui.CommonNavHeader
+import com.prototype.customui.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         setupCommonNavHeader()
         setupCommonButton()
+        setupCommonFooter()
     }
 
     private fun setupCommonNavHeader() {
@@ -38,6 +37,15 @@ class MainActivity : AppCompatActivity() {
             Handler().postDelayed({
                 loader.stopAnimation()
             }, 3000)
+        }
+    }
+
+    private fun setupCommonFooter() {
+        val cf: CommonFooterWithTextAndButton = findViewById(R.id.common_footer)
+        cf.buttonAction = View.OnClickListener {
+            Alert.show(this@MainActivity, "Oops!", "There is no internet connection.", "TRY AGAIN") {
+                Toast.makeText(this@MainActivity, "TRY AGAIN clicked", Toast.LENGTH_LONG).show()
+            }
         }
     }
 }
