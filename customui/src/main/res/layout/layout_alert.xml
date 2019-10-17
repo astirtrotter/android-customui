@@ -39,7 +39,6 @@
         android:clickable="true"
         android:focusable="true"
         android:background="?android:selectableItemBackground"
-        android:padding="@dimen/gap_x"
-        android:layout_marginBottom="@dimen/gap_x"/>
+        android:padding="@dimen/gap_x"/>
 
 </LinearLayout>
