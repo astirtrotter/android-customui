@@ -34,6 +34,11 @@ class CommonButton @JvmOverloads constructor(
             field = value
             display.setTextColor(value)
         }
+    var buttonAction: OnClickListener? = null
+        set(value) {
+            field = value
+            (display.parent as View).setOnClickListener(value)
+        }
 
     private lateinit var display: TextView
 
