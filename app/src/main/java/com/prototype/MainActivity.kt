@@ -21,7 +21,12 @@ class MainActivity : AppCompatActivity() {
     private fun setupCommonNavHeader() {
         val cnh: CommonNavHeader = findViewById(R.id.common_nav_header)
         cnh.leftButtonAction = View.OnClickListener { _ ->
-            Toast.makeText(this@MainActivity, "Left button clicked!", Toast.LENGTH_LONG).show()
+            val cb: CommonButton = findViewById(R.id.signup)
+            cb.isEnabled = true
+        }
+        cnh.rightButtonAction = View.OnClickListener { _ ->
+            val cb: CommonButton = findViewById(R.id.signup)
+            cb.isEnabled = false
         }
     }
 

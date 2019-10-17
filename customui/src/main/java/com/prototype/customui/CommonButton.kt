@@ -57,11 +57,11 @@ class CommonButton @JvmOverloads constructor(
         textColor = a.getColor(R.styleable.CommonButton_textColor, Color.WHITE)
 
         a.recycle()
-
     }
 
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
+        (display.parent as View).isEnabled = enabled
         setButtonColor()
     }
 
