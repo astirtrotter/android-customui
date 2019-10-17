@@ -47,7 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/nav_2x"
             app:hintText="Password"
-            app:isPassword="true"/>
+            app:isPassword="true"
+            app:warningText="warning text"/>
 
         <com.prototype.customui.CommonLoginCell
             android:layout_width="match_parent"
