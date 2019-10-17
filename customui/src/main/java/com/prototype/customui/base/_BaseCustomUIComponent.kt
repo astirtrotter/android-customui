@@ -13,11 +13,11 @@ abstract class _BaseCustomUIComponent : RelativeLayout {
         init(null, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         init(attrs, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
         context,
         attrs,
         defStyle
@@ -26,16 +26,15 @@ abstract class _BaseCustomUIComponent : RelativeLayout {
     }
 
     private fun init(attrs: AttributeSet?, defStyle: Int) {
-        inflateLayout()
-        fetchLayout()
+        fetchLayout(inflateLayout())
         readAttr(attrs, defStyle)
     }
 
-    abstract protected fun fetchLayout()
+    abstract protected fun fetchLayout(container: View)
 
     abstract protected fun readAttr(attrs: AttributeSet?, defStyle: Int)
 
-    private fun inflateLayout() {
-        View.inflate(context, layoutResId, this)
+    private fun inflateLayout(): View {
+        return View.inflate(context, layoutResId, this)
     }
 }
