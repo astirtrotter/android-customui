@@ -39,18 +39,19 @@
         <com.prototype.customui.CommonLoginCell
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="Email"
             app:hintText="Email"/>
+
         <com.prototype.customui.CommonLoginCell
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="Password"
+            android:layout_marginTop="@dimen/nav_2x"
             app:hintText="Password"
             app:isPassword="true"/>
+
         <com.prototype.customui.CommonLoginCell
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="Re-enter Password"
+            android:layout_marginTop="@dimen/nav_2x"
             app:hintText="Re-enter Password"
             app:isPassword="true"/>
 

@@ -1,6 +1,5 @@
 <resources>
     <declare-styleable name="CommonLoginCell">
-        <attr name="labelText" format="string|reference" />
         <attr name="hintText" format="string|reference" />
         <attr name="warningText" format="string|reference" />
         <attr name="isPassword" format="boolean" />

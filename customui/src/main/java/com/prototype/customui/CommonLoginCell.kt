@@ -21,11 +21,6 @@ class CommonLoginCell @JvmOverloads constructor(
     override val layoutResId: Int
         get() = R.layout.layout_common_login_cell
 
-    var labelText: String = ""
-        set(value) {
-            field = value
-            label.text = value
-        }
     var hintText: String? = ""
         set(value) {
             field = value
@@ -43,12 +38,10 @@ class CommonLoginCell @JvmOverloads constructor(
             input.inputType = InputType.TYPE_CLASS_TEXT.or(InputType.TYPE_TEXT_VARIATION_PASSWORD.takeIf { value } ?: 0)
         }
 
-    private lateinit var label: TextView
     private lateinit var input: EditText
     private lateinit var warning: TextView
 
     override fun fetchLayout(container: View) {
-        label = container.findViewById(R.id.login_label)
         input = container.findViewById(R.id.login_input)
         warning = container.findViewById(R.id.login_warning)
     }
@@ -58,7 +51,6 @@ class CommonLoginCell @JvmOverloads constructor(
             attrs, R.styleable.CommonLoginCell, defStyle, 0
         )
 
-        labelText = a.getString(R.styleable.CommonLoginCell_labelText) ?: "Label"
         hintText = a.getString(R.styleable.CommonLoginCell_hintText)
         warningText = a.getString(R.styleable.CommonLoginCell_warningText)
         isPassword = a.getBoolean(R.styleable.CommonLoginCell_isPassword, false)
