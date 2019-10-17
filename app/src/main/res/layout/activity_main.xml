@@ -82,4 +82,10 @@
         app:buttonText="SIGN IN"
         app:buttonTextColor="@color/colorAccent"/>
 
+    <com.prototype.customui.CommonLoader
+        android:id="@+id/common_loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

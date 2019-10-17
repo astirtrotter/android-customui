@@ -2,9 +2,11 @@ package com.prototype
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.Toast
 import com.prototype.customui.CommonButton
+import com.prototype.customui.CommonLoader
 import com.prototype.customui.CommonNavHeader
 
 class MainActivity : AppCompatActivity() {
@@ -26,8 +28,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupCommonButton() {
         val cb: CommonButton = findViewById(R.id.signup)
+        val loader: CommonLoader = findViewById(R.id.common_loader)
+
         cb.buttonAction = View.OnClickListener { _ ->
             Toast.makeText(this@MainActivity, "SignUp button clicked!", Toast.LENGTH_LONG).show()
+
+            loader.startAnimation()
+
+            Handler().postDelayed({
+                loader.stopAnimation()
+            }, 3000)
         }
     }
 }
