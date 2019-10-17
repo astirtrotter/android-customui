@@ -28,49 +28,29 @@
         app:subTitleText="Subtitle"
         app:subTitleAlignment="textEnd"/>
 
-    <LinearLayout
-        android:id="@+id/login_cells"
+    <ListView
+        android:id="@+id/login_listview"
         android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:divider="@android:color/transparent"
+        android:padding="@dimen/gap_x"
+        app:layout_constraintTop_toBottomOf="@id/common_header"/>
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/gap_2x"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/common_header">
-
-        <com.prototype.customui.CommonLoginCell
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:hintText="Email"/>
-
-        <com.prototype.customui.CommonLoginCell
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/gap_2x"
-            app:hintText="Password"
-            app:isPassword="true"
-            app:warningText="warning text"/>
-
-        <com.prototype.customui.CommonLoginCell
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/gap_2x"
-            app:hintText="Re-enter Password"
-            app:isPassword="true"/>
-
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/gap_2x"
-            android:text="Remember me"/>
-
-    </LinearLayout>
+        android:layout_marginTop="@dimen/gap_2x"
+        android:text="Remember me"
+        app:layout_constraintTop_toBottomOf="@+id/login_listview"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
     <com.prototype.customui.CommonButton
         android:id="@+id/signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/gap_x"
-        app:layout_constraintTop_toBottomOf="@id/login_cells"
+        app:layout_constraintTop_toBottomOf="@id/checkbox"
         app:displayText="SIGN UP"/>
 
     <com.prototype.customui.CommonFooterWithTextAndButton

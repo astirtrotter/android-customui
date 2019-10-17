@@ -1,11 +1,15 @@
 package com.prototype
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.view.ViewGroup
+import android.widget.BaseAdapter
+import android.widget.ListView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.prototype.customui.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setupCommonNavHeader()
+        setupLoginListView()
         setupCommonButton()
         setupCommonFooter()
     }
@@ -28,6 +33,11 @@ class MainActivity : AppCompatActivity() {
             val cb: CommonButton = findViewById(R.id.signup)
             cb.isEnabled = false
         }
+    }
+
+    private fun setupLoginListView() {
+        val llv: ListView = findViewById(R.id.login_listview)
+        llv.adapter = LoginListViewAdapter()
     }
 
     private fun setupCommonButton() {
@@ -52,5 +62,37 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "TRY AGAIN clicked", Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    inner class LoginListViewAdapter : BaseAdapter() {
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+            return convertView ?: CommonLoginCell(this@MainActivity).apply {
+                when (position) {
+                    0 -> {
+                        // email
+                        hintText = "Email"
+                        isPassword = false
+                    }
+                    1 -> {
+                        // password
+                        hintText = "Password"
+                        isPassword = true
+                        warningText = "password should have at least 8 characters, special character, a number and one uppercase"
+                    }
+                    2 -> {
+                        // re-enter password
+                        hintText = "Re-enter Password"
+                        isPassword = true
+                    }
+                }
+            }
+        }
+
+        override fun getItem(position: Int) = 0
+
+        override fun getItemId(position: Int) = position.toLong()
+
+        override fun getCount() = 3
+
     }
 }
