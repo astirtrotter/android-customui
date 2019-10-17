@@ -1,6 +1,9 @@
 <resources>
     <declare-styleable name="CommonHeader">
         <attr name="titleText" format="string|reference" />
+        <attr name="subTitleText" format="string|reference" />
+        <attr name="titleColor" format="color|reference" />
+        <attr name="subTitleColor" format="color|reference" />
         <attr name="titleAlignment" format="enum">
             <enum name="inherit" value="0" />
             <enum name="gravity" value="1" />
@@ -10,8 +13,6 @@
             <enum name="viewStart" value="5" />
             <enum name="viewEnd" value="6" />
         </attr>
-        <attr name="titleColor" format="color|reference" />
-        <attr name="subTitleText" format="string|reference" />
         <attr name="subTitleAlignment" format="enum">
             <enum name="inherit" value="0" />
             <enum name="gravity" value="1" />
@@ -21,6 +22,5 @@
             <enum name="viewStart" value="5" />
             <enum name="viewEnd" value="6" />
         </attr>
-        <attr name="subTitleColor" format="color|reference" />
     </declare-styleable>
 </resources>
