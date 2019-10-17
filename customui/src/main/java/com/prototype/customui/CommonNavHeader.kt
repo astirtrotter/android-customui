@@ -94,7 +94,6 @@ class CommonNavHeader @JvmOverloads constructor(
     }
 
     override fun readAttr(attrs: AttributeSet?, defStyle: Int) {
-        // Load attributes
         val a = context.obtainStyledAttributes(
             attrs, R.styleable.CommonNavHeader, defStyle, 0
         )
@@ -108,9 +107,5 @@ class CommonNavHeader @JvmOverloads constructor(
         rightButtonText = a.getString(R.styleable.CommonNavHeader_rightButtonText)
 
         a.recycle()
-    }
-
-    private fun setVisibilityWithValue(view: View, value: Any?) {
-        view.visibility = View.VISIBLE.takeIf { value != null } ?: View.GONE
     }
 }

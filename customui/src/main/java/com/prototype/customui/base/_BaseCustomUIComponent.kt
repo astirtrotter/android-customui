@@ -37,4 +37,8 @@ abstract class _BaseCustomUIComponent : RelativeLayout {
     private fun inflateLayout(): View {
         return View.inflate(context, layoutResId, this)
     }
+
+    protected fun setVisibilityWithValue(view: View, value: Any?) {
+        view.visibility = View.VISIBLE.takeIf { value != null } ?: View.GONE
+    }
 }
