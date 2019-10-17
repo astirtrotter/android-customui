@@ -1,6 +1,7 @@
 package com.prototype.customui
 
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
 import android.widget.TextView
@@ -24,12 +25,12 @@ class CommonHeader @JvmOverloads constructor(
             subTitle.text = value
             setVisibilityWithValue(subTitle, value)
         }
-    var titleColor: Int = 0
+    var titleColor: Int = Color.BLACK
         set(value) {
             field = value
             title.setTextColor(value)
         }
-    var subTitleColor: Int = 0
+    var subTitleColor: Int = Color.BLACK
         set(value) {
             field = value
             subTitle.setTextColor(value)

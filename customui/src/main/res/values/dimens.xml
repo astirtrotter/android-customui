@@ -11,6 +11,6 @@
     <dimen name="nav_header_text_size">20sp</dimen>
 
     <!-- Common Header -->
-    <dimen name="header_title_text_size">18</dimen>
-    <dimen name="header_subtitle_text_size">15</dimen>
+    <dimen name="header_title_text_size">18sp</dimen>
+    <dimen name="header_subtitle_text_size">15sp</dimen>
 </resources>
