@@ -29,6 +29,7 @@
         app:subTitleAlignment="textEnd"/>
 
     <LinearLayout
+        android:id="@+id/login_cells"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -54,6 +55,12 @@
             android:layout_marginTop="@dimen/nav_2x"
             app:hintText="Re-enter Password"
             app:isPassword="true"/>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/nav_2x"
+            android:text="Remember me"/>
 
     </LinearLayout>
 
