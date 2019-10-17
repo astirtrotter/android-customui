@@ -33,7 +33,7 @@ class CommonHeader @JvmOverloads constructor(
     var subTitleColor: Int = Color.BLACK
         set(value) {
             field = value
-            subTitle.setTextColor(value)
+            subTitle.setTextColor(field)
         }
     var titleAlignment: Int = View.TEXT_ALIGNMENT_INHERIT
         set(value) {
@@ -61,8 +61,8 @@ class CommonHeader @JvmOverloads constructor(
 
         titleText = a.getString(R.styleable.CommonHeader_titleText) ?: titleText
         subTitleText = a.getString(R.styleable.CommonHeader_subTitleText)
-        titleColor = a.getColor(R.styleable.CommonHeader_titleColor, titleColor)
-        subTitleColor = a.getColor(R.styleable.CommonHeader_subTitleColor, subTitleColor)
+        titleColor = a.getColor(R.styleable.CommonHeader_titleColor, Color.BLACK)
+        subTitleColor = a.getColor(R.styleable.CommonHeader_subTitleColor, Color.BLACK)
         titleAlignment = a.getInt(R.styleable.CommonHeader_titleAlignment, titleAlignment)
         subTitleAlignment = a.getInt(R.styleable.CommonHeader_subTitleAlignment, subTitleAlignment)
 
