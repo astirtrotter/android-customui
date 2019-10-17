@@ -1,65 +1,111 @@
 package com.prototype.customui
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import com.prototype.customui.base._BaseCustomUIComponent
 
-class CommonNavHeader : View {
+class CommonNavHeader @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : _BaseCustomUIComponent(context, attrs, defStyleAttr) {
 
+    override val layoutResId: Int
+        get() = R.layout.layout_common_nav_header
+
+    var headerText: String? = null
+        set(value) {
+            field = value
+            setVisibilityWithValue(header, value)
+            header.text = value
+        }
     var leftButtonIsEnabled: Boolean = true
+        set(value) {
+            field = value
+            leftButton.isEnabled = value
+        }
     var rightButtonIsEnabled: Boolean = true
-    var leftButtonText: String? = "Left"
-    var rightButtonText: String? = "Right"
-    var headerText: String? = "Header"
-    var leftButtonAction: (() -> Unit)? = null
-    var rightButtonAction: (() -> Unit)? = null
-    lateinit var leftButton: ImageView
-    lateinit var rightButton: ImageView
+        set(value) {
+            field = value
+            rightButton.isEnabled = value
+        }
+    var leftButtonImage: Drawable? = null
+        set(value) {
+            field = value
+            leftImage.setImageDrawable(value)
+            setVisibilityWithValue(leftImage, value)
+        }
+    var rightButtonImage: Drawable? = null
+        set(value) {
+            field = value
+            rightImage.setImageDrawable(value)
+            setVisibilityWithValue(rightImage, value)
+        }
+    var leftButtonText: String? = null
+        set(value) {
+            field = value
+            leftText.text = value
+            if (leftButtonImage != null) {
+                leftText.visibility = View.GONE
+            } else {
+                setVisibilityWithValue(leftText, value)
+            }
+        }
+    var rightButtonText: String? = null
+        set(value) {
+            field = value
+            rightText.text = value
+            if (rightButtonImage != null) {
+                rightText.visibility = View.GONE
+            } else {
+                setVisibilityWithValue(rightText, value)
+            }
+        }
+    var leftButtonAction: OnClickListener? = null
+    var rightButtonAction: OnClickListener? = null
 
-    constructor(context: Context) : super(context) {
-        init(null, 0)
+    private lateinit var header: TextView
+    private lateinit var leftButton: ViewGroup
+    private lateinit var leftImage: ImageView
+    private lateinit var leftText: TextView
+    private lateinit var rightButton: ViewGroup
+    private lateinit var rightImage: ImageView
+    private lateinit var rightText: TextView
+
+    override fun fetchLayout(container: View) {
+        header = container.findViewById(R.id.nav_text_header)
+        leftButton = container.findViewById(R.id.nav_button_left)
+        leftImage = container.findViewById(R.id.nav_image_left)
+        leftText = container.findViewById(R.id.nav_text_left)
+        rightButton = container.findViewById(R.id.nav_button_right)
+        rightImage = container.findViewById(R.id.nav_image_right)
+        rightText = container.findViewById(R.id.nav_text_right)
+
+        leftButton.setOnClickListener(leftButtonAction)
+        rightButton.setOnClickListener(rightButtonAction)
     }
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        init(attrs, 0)
-    }
-
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
-        context,
-        attrs,
-        defStyle
-    ) {
-        init(attrs, defStyle)
-    }
-
-    private fun init(attrs: AttributeSet?, defStyle: Int) {
+    override fun readAttr(attrs: AttributeSet?, defStyle: Int) {
         // Load attributes
         val a = context.obtainStyledAttributes(
             attrs, R.styleable.CommonNavHeader, defStyle, 0
         )
 
-//        _exampleString = a.getString(
-//            R.styleable.CommonNavHeader_exampleString
-//        )
-//        _exampleColor = a.getColor(
-//            R.styleable.CommonNavHeader_exampleColor,
-//            exampleColor
-//        )
-//        // Use getDimensionPixelSize or getDimensionPixelOffset when dealing with
-//        // values that should fall on pixel boundaries.
-//        _exampleDimension = a.getDimension(
-//            R.styleable.CommonNavHeader_exampleDimension,
-//            exampleDimension
-//        )
-//
-//        if (a.hasValue(R.styleable.CommonNavHeader_exampleDrawable)) {
-//            exampleDrawable = a.getDrawable(
-//                R.styleable.CommonNavHeader_exampleDrawable
-//            )
-//            exampleDrawable?.callback = this
-//        }
+        headerText = a.getString(R.styleable.CommonNavHeader_headerText)
+        leftButtonIsEnabled = a.getBoolean(R.styleable.CommonNavHeader_leftButtonIsEnabled, true)
+        leftButtonImage = a.getDrawable(R.styleable.CommonNavHeader_leftButtonImage)
+        leftButtonText = a.getString(R.styleable.CommonNavHeader_leftButtonText)
+        rightButtonIsEnabled = a.getBoolean(R.styleable.CommonNavHeader_rightButtonIsEnabled, true)
+        rightButtonImage = a.getDrawable(R.styleable.CommonNavHeader_rightButtonImage)
+        rightButtonText = a.getString(R.styleable.CommonNavHeader_rightButtonText)
 
         a.recycle()
+    }
+
+    private fun setVisibilityWithValue(view: View, value: Any?) {
+        view.visibility = View.VISIBLE.takeIf { value != null } ?: View.GONE
     }
 }
