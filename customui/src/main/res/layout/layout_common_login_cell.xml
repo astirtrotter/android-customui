@@ -4,18 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <TextView
+        android:id="@+id/login_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/login_label_text_size"
+        android:textColor="@color/login_label"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:id="@+id/login_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hintAnimationEnabled="true">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/login_field_text_size" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        android:textSize="@dimen/login_field_text_size" />
 
     <TextView
         android:id="@+id/login_warning"
