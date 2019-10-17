@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
+import android.text.InputType
 import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.View
@@ -39,7 +40,7 @@ class CommonLoginCell @JvmOverloads constructor(
     var isPassword: Boolean = false
         set(value) {
             field = value
-            input.inputType = EditorInfo.TYPE_TEXT_VARIATION_PASSWORD
+            input.inputType = InputType.TYPE_CLASS_TEXT.or(InputType.TYPE_TEXT_VARIATION_PASSWORD.takeIf { value } ?: 0)
         }
 
     private lateinit var label: TextView
