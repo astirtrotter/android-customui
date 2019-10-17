@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common Login Cell -->
+    <color name="login_label">#727272</color>
+    <color name="login_warning">#FF9800</color>
+</resources>
