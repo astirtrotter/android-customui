@@ -1,0 +1,18 @@
+<resources>
+    <declare-styleable name="CommonHeader">
+        <attr name="titleText" format="string|reference" />
+        <attr name="titleAlignment" format="enum">
+            <enum name="left" value="-1" />
+            <enum name="center" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+        <attr name="titleColor" format="color|reference" />
+        <attr name="subTitleText" format="string|reference" />
+        <attr name="subTitleAlignment" format="enum">
+            <enum name="left" value="-1" />
+            <enum name="center" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+        <attr name="subTitleColor" format="color|reference" />
+    </declare-styleable>
+</resources>

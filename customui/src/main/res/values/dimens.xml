@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Nav Header -->
-    <dimen name="nav_padding">16dp</dimen>
+
+    <dimen name="nav_x">8dp</dimen>
+    <dimen name="nav_2x">16dp</dimen>
+    <dimen name="nav_3x">24dp</dimen>
+
+    <!-- Common Nav Header -->
     <dimen name="nav_button_image_size">32dp</dimen>
     <dimen name="nav_button_text_size">14sp</dimen>
     <dimen name="nav_header_text_size">20sp</dimen>
+
+    <!-- Common Header -->
+    <dimen name="header_title_text_size">18</dimen>
+    <dimen name="header_subtitle_text_size">15</dimen>
 </resources>
