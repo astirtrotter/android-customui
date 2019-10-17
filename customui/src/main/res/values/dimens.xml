@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="nav_x">8dp</dimen>
-    <dimen name="nav_2x">16dp</dimen>
-    <dimen name="nav_3x">24dp</dimen>
+    <dimen name="gap_x">8dp</dimen>
+    <dimen name="gap_2x">16dp</dimen>
+    <dimen name="gap_3x">24dp</dimen>
 
     <!-- Common Nav Header -->
     <dimen name="nav_button_image_size">32dp</dimen>
@@ -24,4 +24,10 @@
 
     <!-- common Footer -->
     <dimen name="footer_text_size">13sp</dimen>
+
+    <!-- Alert -->
+    <dimen name="alert_title_text_size">20sp</dimen>
+    <dimen name="alert_message_text_size">14sp</dimen>
+    <dimen name="alert_button_text_size">16sp</dimen>
+
 </resources>

@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/footer_text_size"
-        android:paddingTop="@dimen/nav_x"
-        android:paddingBottom="@dimen/nav_x"/>
+        android:paddingTop="@dimen/gap_x"
+        android:paddingBottom="@dimen/gap_x"/>
 
     <TextView
         android:id="@+id/footer_button"
@@ -22,6 +22,6 @@
         android:textSize="@dimen/footer_text_size"
         android:clickable="true"
         android:focusable="true"
-        android:padding="@dimen/nav_x"/>
+        android:padding="@dimen/gap_x"/>
 
 </LinearLayout>

@@ -1,19 +1,30 @@
 package com.prototype.customui
 
 import android.content.Context
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 
 object Alert {
 
-    fun show(context: Context, titleText: String, message: String, buttonText: String, action: () -> Unit) {
-        AlertDialog.Builder(context)
+    fun show(context: Context, titleText: String, messageText: String, buttonText: String, action: () -> Unit) {
+        val dialog = AlertDialog.Builder(context)
             .setCancelable(false)
-            .setTitle(titleText)
-            .setMessage(message)
-            .setPositiveButton(buttonText, { _, _ ->
-                action()
-            })
+            .setView(R.layout.layout_alert)
             .create()
-            .show()
+
+        dialog.setOnShowListener { _ ->
+            val title = dialog.findViewById<TextView>(R.id.alert_title)
+            val message = dialog.findViewById<TextView>(R.id.alert_message)
+            val button = dialog.findViewById<TextView>(R.id.alert_button)
+
+            title?.text = titleText
+            message?.text = messageText
+            button?.setOnClickListener { _ ->
+                dialog.dismiss()
+            }
+        }
+
+        dialog.show()
+
     }
 }
