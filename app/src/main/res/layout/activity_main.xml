@@ -70,6 +70,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/nav_x"
         app:layout_constraintTop_toBottomOf="@id/login_cells"
-        app:displayText="sign up"/>
+        app:displayText="SIGN UP"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
