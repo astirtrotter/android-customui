@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Nav Header -->
-    <dimen name="nav_padding">8dp</dimen>
+    <dimen name="nav_padding">16dp</dimen>
     <dimen name="nav_button_image_size">32dp</dimen>
-    <dimen name="nav_button_text_size">18sp</dimen>
+    <dimen name="nav_button_text_size">14sp</dimen>
     <dimen name="nav_header_text_size">20sp</dimen>
 </resources>
