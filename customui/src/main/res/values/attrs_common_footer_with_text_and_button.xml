@@ -4,6 +4,6 @@
         <attr name="labelText" format="string|reference" />
         <attr name="labelTextColor" format="color|reference" />
         <attr name="buttonText" format="string|reference" />
-        <attr name="buttonTextColo" format="color|reference" />
+        <attr name="buttonTextColor" format="color|reference" />
     </declare-styleable>
 </resources>

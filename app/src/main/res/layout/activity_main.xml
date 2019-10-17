@@ -72,4 +72,14 @@
         app:layout_constraintTop_toBottomOf="@id/login_cells"
         app:displayText="SIGN UP"/>
 
+    <com.prototype.customui.CommonFooterWithTextAndButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/nav_2x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:labelText="Already have an account?"
+        app:buttonText="SIGN IN"
+        app:buttonTextColor="@color/colorAccent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
