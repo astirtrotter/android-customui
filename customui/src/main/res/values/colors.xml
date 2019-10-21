@@ -2,6 +2,8 @@
 <resources>
     <!-- Common Login Cell -->
     <color name="login_label">#727272</color>
+    <color name="login_empty">#D7D7D7</color>
+    <color name="login_success">#00E64D</color>
     <color name="login_warning">#FF9800</color>
 
     <!-- Alert -->

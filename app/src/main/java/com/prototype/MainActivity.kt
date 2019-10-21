@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         val llv: ListView = findViewById(R.id.login_listview)
         llv.adapter = LoginListViewAdapter(arrayOf(
             LoginCellModel("Email"),
-            LoginCellModel("Password", true, "warning text"),
+            LoginCellModel("Password", true),
             LoginCellModel("Re-enter Password", true)
         ))
     }

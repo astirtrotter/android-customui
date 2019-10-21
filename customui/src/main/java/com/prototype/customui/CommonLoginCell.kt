@@ -1,20 +1,14 @@
 package com.prototype.customui
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.drawable.Drawable
+import android.graphics.PorterDuff
 import android.text.Editable
 import android.text.InputType
-import android.text.TextPaint
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
-import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.widget.addTextChangedListener
 import com.prototype.customui.base._BaseCustomUIComponent
 
 class CommonLoginCell @JvmOverloads constructor(
@@ -35,12 +29,17 @@ class CommonLoginCell @JvmOverloads constructor(
             field = value
             warning.text = value
             setVisibilityWithValue(warning, value)
+            configInput()
         }
     var isPassword: Boolean = false
         set(value) {
             field = value
             input.inputType = InputType.TYPE_CLASS_TEXT.or(InputType.TYPE_TEXT_VARIATION_PASSWORD.takeIf { value } ?: 0)
         }
+    var text: String
+        get() = input.text.toString()
+        set(value) = input.setText(value)
+    var validator: ((String) -> String?)? = null
 
     private lateinit var label: TextView
     private lateinit var input: EditText
@@ -53,14 +52,14 @@ class CommonLoginCell @JvmOverloads constructor(
 
         input.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                setLabelVisibility()
+                validator?.let { warningText = it(text) } ?: configInput()
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
-        input.setOnFocusChangeListener { v, hasFocus -> setLabelVisibility() }
+        input.setOnFocusChangeListener { v, hasFocus -> configInput() }
     }
 
     override fun readAttr(attrs: AttributeSet?, defStyle: Int) {
@@ -75,10 +74,20 @@ class CommonLoginCell @JvmOverloads constructor(
         a.recycle()
     }
 
-    private fun setLabelVisibility() {
+    private fun configInput() {
         label.visibility = View.VISIBLE.takeIf {
-            input.text.isNotEmpty()
+            text.isNotEmpty()
         } ?: View.INVISIBLE
+
+        val color = if (warningText?.isNotEmpty() ?: false) {
+            resources.getColor(R.color.login_warning)
+        } else if (text.isBlank()) {
+            resources.getColor(R.color.login_empty)
+        } else {
+            resources.getColor(R.color.login_success)
+        }
+
+        input.background.mutate().setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
     }
 
 }
