@@ -1,6 +1,8 @@
 package com.prototype.customui
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 
@@ -28,5 +30,6 @@ object Alert {
 
         dialog.show()
 
+        dialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     }
 }
