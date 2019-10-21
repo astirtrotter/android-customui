@@ -19,7 +19,9 @@ object Alert {
 
             title?.text = titleText
             message?.text = messageText
+            button?.text = buttonText
             button?.setOnClickListener { _ ->
+                action()
                 dialog.dismiss()
             }
         }
