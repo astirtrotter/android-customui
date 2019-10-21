@@ -37,10 +37,30 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupLoginListView() {
         val llv: ListView = findViewById(R.id.login_listview)
+        var password: String = ""
         llv.adapter = LoginListViewAdapter(arrayOf(
-            LoginCellModel("Email"),
-            LoginCellModel("Password", true),
-            LoginCellModel("Re-enter Password", true)
+            LoginCellModel("Email", validator = { value ->
+                if (android.util.Patterns.EMAIL_ADDRESS.matcher(value).matches()) {
+                    null
+                } else {
+                    "Invalid Email"
+                }
+            }),
+            LoginCellModel("Password", true, validator = { value ->
+                password = value
+                if (Regex("^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@\$%^&*-]).{8,}\$").matches(value)) {
+                    null
+                } else {
+                    "password should have at least 8 characters, special character, a number and one uppercase"
+                }
+            }),
+            LoginCellModel("Re-enter Password", true, validator = { value ->
+                if (password.equals(value)) {
+                    null
+                } else {
+                    "incorrect"
+                }
+            })
         ))
     }
 
@@ -75,6 +95,7 @@ class MainActivity : AppCompatActivity() {
                 hintText = item.hintText
                 isPassword = item.isPassword
                 warningText = item.warningText
+                validator = item.validator
             }
         }
 
@@ -89,6 +110,7 @@ class MainActivity : AppCompatActivity() {
     data class LoginCellModel(
         val hintText: String? = null,
         val isPassword: Boolean = false,
-        val warningText: String? = null)
+        val warningText: String? = null,
+        val validator: ((String) -> String?)? = null)
 
 }
