@@ -6,13 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.prototype.customui.CommonNavHeader
+        android:id="@+id/common_nav_header"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorPrimary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:headerText="@string/app_name"
+        app:leftButtonImage="@mipmap/ic_launcher_round"
+        app:leftButtonText="Left"
+        app:rightButtonText="Right"/>
+
+    <com.prototype.customui.CommonHeader
+        android:id="@+id/common_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/common_nav_header"
+        app:titleText="@string/app_name"
+        app:subTitleText="Subtitle"
+        app:subTitleAlignment="textEnd"/>
+
+    <ListView
+        android:id="@+id/login_listview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:divider="@android:color/transparent"
+        android:padding="@dimen/gap_x"
+        app:layout_constraintTop_toBottomOf="@id/common_header"/>
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_2x"
+        android:text="Remember me"
+        app:layout_constraintTop_toBottomOf="@+id/login_listview"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <com.prototype.customui.CommonButton
+        android:id="@+id/signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/gap_x"
+        app:layout_constraintTop_toBottomOf="@id/checkbox"
+        app:displayText="SIGN UP"/>
+
+    <com.prototype.customui.CommonFooterWithTextAndButton
+        android:id="@+id/common_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/gap_2x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:labelText="Already have an account?"
+        app:buttonText="SIGN IN"
+        app:buttonTextColor="@color/colorAccent"/>
+
+    <com.prototype.customui.CommonLoader
+        android:id="@+id/common_loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

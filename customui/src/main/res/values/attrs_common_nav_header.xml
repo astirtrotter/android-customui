@@ -1,0 +1,11 @@
+<resources>
+    <declare-styleable name="CommonNavHeader">
+        <attr name="headerText" format="string|reference" />
+        <attr name="leftButtonIsEnabled" format="boolean" />
+        <attr name="rightButtonIsEnabled" format="boolean" />
+        <attr name="leftButtonImage" format="reference" />
+        <attr name="rightButtonImage" format="reference" />
+        <attr name="leftButtonText" format="string|reference" />
+        <attr name="rightButtonText" format="string|reference" />
+    </declare-styleable>
+</resources>

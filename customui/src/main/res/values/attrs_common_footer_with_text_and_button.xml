@@ -1,0 +1,9 @@
+<resources>
+    <declare-styleable name="CommonFooterWithTextAndButton">
+        <attr name="viewBgColor" format="color|reference" />
+        <attr name="labelText" format="string|reference" />
+        <attr name="labelTextColor" format="color|reference" />
+        <attr name="buttonText" format="string|reference" />
+        <attr name="buttonTextColor" format="color|reference" />
+    </declare-styleable>
+</resources>
